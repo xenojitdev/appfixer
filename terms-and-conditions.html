@@ -17,16 +17,16 @@
       --bg:#111111;
       --card:#ffffff;
       --text:#111111;
-      --sub:#555555;
+      --sub:#5b5b5b;
       --border:#dddddd;
       --accent:#4d8dff;
     }
 
     body.dark{
-      --bg:#0a0a0a;
-      --card:#1b1b1b;
+      --bg:#050505;
+      --card:#1a1a1a;
       --text:#ffffff;
-      --sub:#b5b5b5;
+      --sub:#b8b8b8;
       --border:#2d2d2d;
     }
 
@@ -62,7 +62,7 @@
       font-size:38px;
     }
 
-    .toggle-btn{
+    .theme-btn{
       border:none;
       background:var(--accent);
       color:white;
@@ -72,9 +72,12 @@
       font-size:14px;
       font-weight:bold;
       transition:0.3s;
+      display:flex;
+      align-items:center;
+      gap:8px;
     }
 
-    .toggle-btn:hover{
+    .theme-btn:hover{
       opacity:0.9;
     }
 
@@ -93,9 +96,9 @@
     }
 
     p{
-      color:var(--text);
       margin-bottom:16px;
       font-size:16px;
+      color:var(--text);
     }
 
     ul{
@@ -158,8 +161,9 @@
         font-size:15px;
       }
 
-      .toggle-btn{
+      .theme-btn{
         width:100%;
+        justify-content:center;
       }
 
     }
@@ -172,11 +176,13 @@
   <div class="container">
 
     <div class="topbar">
+
       <h1>Terms & Conditions</h1>
 
-      <button class="toggle-btn" onclick="toggleTheme()">
-        Toggle Theme
+      <button class="theme-btn" onclick="toggleTheme()">
+        🌙 Dark Theme
       </button>
+
     </div>
 
     <div class="updated">
@@ -193,7 +199,9 @@
       AppFixer is provided for installing and managing Android application packages.
     </p>
 
-    <p>Users are responsible for:</p>
+    <p>
+      Users are responsible for:
+    </p>
 
     <ul>
       <li>The files they install</li>
@@ -203,7 +211,9 @@
 
     <h2>Restrictions</h2>
 
-    <p>Users may not:</p>
+    <p>
+      Users may not:
+    </p>
 
     <ul>
       <li>Use AppFixer for illegal activities</li>
@@ -257,7 +267,17 @@
   <script>
 
     function toggleTheme(){
+
       document.body.classList.toggle("dark");
+
+      const btn = document.querySelector(".theme-btn");
+
+      if(document.body.classList.contains("dark")){
+        btn.innerHTML = "☀️ Light Theme";
+      }else{
+        btn.innerHTML = "🌙 Dark Theme";
+      }
+
     }
 
   </script>
